@@ -2,7 +2,75 @@
 /.build
 /Packages
 xcuserdata/
-DerivedData/
 .swiftpm/configuration/registries.json
 .swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
 .netrc
+
+# Xcode
+DerivedData/
+*.xcuserdata/
+*.xcuserstate
+*.xccheckout
+*.moved-aside
+*.xcscmblueprint
+
+# Swift Package Manager
+.build/
+.swiftpm/
+Package.resolved
+
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Xcode project workspace
+*.xcworkspace
+xcuserdata/
+
+# Logs and temporary files
+*.log
+*.swp
+*.swo
+*.tmp
+
+# Playground data
+timeline.xctimeline
+playground.xcworkspace
+
+# Carthage (если вдруг будешь использовать)
+Carthage/Build/
+
+# CocoaPods (если SDK будет оборачиваться под проект)
+Pods/
+Podfile.lock
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# User-specific files
+*.iml
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+*.xcuserdatad
+*.idea/
+.vscode/
+
+# Build artifacts
+*.o
+*.a
+*.so
+*.dylib
+*.framework
+*.app
+*.zip
+
+# Coverage
+*.xccovreport
+*.xccovarchive
+coverage/

@@ -5,17 +5,21 @@ import PackageDescription
 
 let package = Package(
     name: "StormSDKAdapty",
+    platforms: [
+        .iOS(.v15)
+    ],
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "StormSDKAdapty",
             targets: ["StormSDKAdapty"]),
     ],
+    dependencies: [
+        .package(url: "https://github.com/gixdev/AdaptySDK-SK1", branch: "master")
+    ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "StormSDKAdapty"),
-
+            name: "StormSDKAdapty",
+            dependencies: [.product(name: "Adapty", package: "AdaptySDK-SK1"),
+                           .product(name: "AdaptyUI", package: "AdaptySDK-SK1")])
     ]
 )

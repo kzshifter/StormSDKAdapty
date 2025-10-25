@@ -7,7 +7,7 @@ public struct StormSDKAdaptyConfiguration {
     let logLevel: AdaptyLog.Level
     let fallbackName: String?
     
-    init(apiKey: String,
+    public init(apiKey: String,
          placementIdentifers: [String],
          storeKitVersion: StoreKitVersion = .v1,
          logLevel: AdaptyLog.Level = .verbose,

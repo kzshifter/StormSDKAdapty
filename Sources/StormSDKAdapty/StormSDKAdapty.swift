@@ -21,6 +21,8 @@ public actor StormSDKAdapty {
     
     private let localizer = JSONLocalizer()
     
+    public init() { }
+    
     public func start(config: StormSDKAdaptyConfiguration) {
         
         let serverCluster: AdaptyConfiguration.ServerCluster = Locale.current.regionCode == "CN" ? .cn : .default

@@ -34,7 +34,7 @@ public protocol StormSDKAdaptyProviding {
     /// - The Adapty profile updates
     ///
     /// Returns `false` if the SDK is not initialized.
-    var isActiveSubscription: Bool { get }
+    var hasActiveSubscription: Bool { get }
     
     // MARK: Subscription Validation
     

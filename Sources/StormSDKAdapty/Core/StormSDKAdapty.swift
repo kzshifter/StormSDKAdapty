@@ -33,13 +33,13 @@ public actor StormSDKAdapty {
     
     private struct StateSnapshot: Sendable {
         let isReady: Bool
-        let isSubscriptionActive: Bool
+        let hasActiveSubscription: Bool
         let config: StormSDKAdaptyConfiguration?
         let placementBag: PlacementBag?
         
         static let initial = StateSnapshot(
             isReady: false,
-            isSubscriptionActive: false,
+            hasActiveSubscription: false,
             config: nil,
             placementBag: nil
         )
@@ -134,7 +134,7 @@ public actor StormSDKAdapty {
             
             let placementBag = try await PlacementBag(
                 config.placementIdentifers,
-                locale: Locale.current.identifier
+                locale: config.languageCode
             )
             
             state = .ready(config: config, placementBag: placementBag)
@@ -199,14 +199,14 @@ public actor StormSDKAdapty {
         case .ready(let config, let placementBag):
             cachedSnapshot = StateSnapshot(
                 isReady: true,
-                isSubscriptionActive: subscriptionActive,
+                hasActiveSubscription: subscriptionActive,
                 config: config,
                 placementBag: placementBag
             )
         default:
             cachedSnapshot = StateSnapshot(
                 isReady: false,
-                isSubscriptionActive: false,
+                hasActiveSubscription: false,
                 config: nil,
                 placementBag: nil
             )
@@ -261,8 +261,8 @@ extension StormSDKAdapty: StormSDKAdaptyProviding {
         cachedSnapshot.isReady
     }
     
-    nonisolated public var isActiveSubscription: Bool {
-        cachedSnapshot.isSubscriptionActive
+    nonisolated public var hasActiveSubscription: Bool {
+        cachedSnapshot.hasActiveSubscription
     }
     
     // MARK: Subscription Validation

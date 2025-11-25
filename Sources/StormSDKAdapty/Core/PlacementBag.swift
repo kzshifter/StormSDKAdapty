@@ -32,6 +32,7 @@ actor PlacementBag {
         }
     }
     
+    nonisolated
     public func entry(for placementId: String) -> PlacementEntry? {
         self.first(where: { $0.placementId == placementId })
     }
